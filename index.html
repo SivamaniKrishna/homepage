@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MSPL Voice-Assistant</title>
+    <style>
+        /* CSS styles omitted for brevity */
+        body {
+            background-color: #f0f0f0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center; 
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            flex-direction: column; /* Added this line */
+        }
+
+        h1 {
+                background: linear-gradient(45deg, #ee5253, #5f27cd, #ff3f34, #34e7e4);
+                background-size: 400% 400%;
+                -webkit-animation: gradientAnimation 10s ease infinite;
+                -moz-animation: gradientAnimation 10s ease infinite;
+                animation: gradientAnimation 10s ease infinite;
+                color: white;
+                padding: 20px;
+                font-size: 48px;
+                border-radius: 10px;
+                position: relative;
+            }
+
+        @keyframes gradientAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .image-container {
+            position: relative;
+            width: 300px;
+            height: 200px;
+            perspective: 1000px;
+            margin-bottom: 5px;
+            margin-right: 1000px;
+        }
+
+        .image-container:hover .image {
+            transform: rotateY(-180deg);
+        }
+
+        .image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+            transform: scaleX(-1);
+        }
+
+        .image-front,
+        .image-back {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+        }
+
+        .image-front {
+            z-index: 2;
+            background-image: url('robot.jpg');
+            background-size: cover;
+            border-radius: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .image-back {
+            transform: rotateY(180deg);
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .video {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .powered-by {
+            position: absolute;
+            bottom: 10px;
+            right: 10px; /* Position at the right */
+            font-size: 14px;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="mspl_status_page">Click Extension to start MSPL</h1>
+    <input type="hidden" value="mspl_homepage" id="mspl_homepage">
+    <div class="powered-by" onclick="window.open('https://www.sriainfotech.com', '_blank')">Powered by Sria InfoTech Pvt Ltd</div>
+    <div class="image-container">
+        <div class="image">
+            <div class="image-front"></div>
+            <div class="image-back">
+                <video class="video" controls autoplay loop>
+                    <source src="myvideo.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var video = document.querySelector('.video');
+        var imageContainer = document.querySelector('.image-container');
+
+        imageContainer.addEventListener('mouseenter', function() {
+            video.pause();
+        });
+
+        imageContainer.addEventListener('mouseleave', function() {
+            video.play();
+        });
+    </script>
+</body>
+</html>
