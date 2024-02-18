@@ -18,37 +18,27 @@
         }
 
         h1 {
-                background: linear-gradient(45deg, #ee5253, #5f27cd, #ff3f34, #34e7e4);
-                background-size: 400% 400%;
-                -webkit-animation: gradientAnimation 10s ease infinite;
-                -moz-animation: gradientAnimation 10s ease infinite;
-                animation: gradientAnimation 10s ease infinite;
-                color: white;
-                padding: 20px;
-                font-size: 48px;
-                border-radius: 10px;
-                position: relative;
-            }
-
-        @keyframes gradientAnimation {
-            0% {
-                background-position: 0% 50%;
-            }
-            50% {
-                background-position: 100% 50%;
-            }
-            100% {
-                background-position: 0% 50%;
-            }
+            background: linear-gradient(45deg, #ee5253, #5f27cd, #ff3f34, #34e7e4);
+            background-size: 400% 400%;
+            -webkit-animation: gradientAnimation 10s ease infinite;
+            -moz-animation: gradientAnimation 10s ease infinite;
+            animation: gradientAnimation 10s ease infinite;
+            color: white;
+            padding: 20px;
+            font-size: 24px; /* Updated font size */
+            border-radius: 10px;
+            position: relative;
+            margin-top: 20px; /* Added margin to create space below the image */
         }
 
         .image-container {
             position: relative;
-            width: 300px;
-            height: 200px;
+            width: 600px; /* Increased width */
+            height: 400px; /* Increased height */
             perspective: 1000px;
             margin-bottom: 5px;
-            margin-right: 1000px;
+            margin-right: 10px;
+            margin-bottom: 20px; /* Added margin to center the image */
         }
 
         .image-container:hover .image {
@@ -59,8 +49,11 @@
             position: absolute;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
+            right: 0; /* Center the image horizontally */
+            bottom: 0; /* Center the image vertically */
+            margin: auto; /* Center the image */
+            width: 600px; /* Increased width */
+            height: 400px; /* Increased height */
             transition: transform 0.6s;
             transform-style: preserve-3d;
             transform: scaleX(-1);
@@ -115,9 +108,6 @@
     </style>
 </head>
 <body>
-    <h1 id="mspl_status_page">Click Extension to start Patil</h1>
-    <input type="hidden" value="mspl_homepage" id="mspl_homepage">
-    <div class="powered-by" onclick="window.open('https://www.sriainfotech.com', '_blank')">Powered by Sria InfoTech Pvt Ltd</div>
     <div class="image-container">
         <div class="image">
             <div class="image-front"></div>
@@ -128,6 +118,9 @@
             </div>
         </div>
     </div>
+    <h1 id="mspl_status_page">Click Extension to start Patil</h1>
+    <input type="hidden" value="mspl_homepage" id="mspl_homepage">
+    <div class="powered-by" onclick="window.open('https://www.sriainfotech.com', '_blank')">Powered by Sria InfoTech Pvt Ltd</div>
 
     <script>
         var video = document.querySelector('.video');
